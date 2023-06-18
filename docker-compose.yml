@@ -1,0 +1,62 @@
+version: '3.9'
+
+services:  
+  # app:
+  #     container_name: auth-api
+  #     build:
+  #       dockerfile: Dockerfile
+  #       context: .
+  #     environment:
+  #       MONGODB_URL: ${MONGO_URL}
+  #       REDIS_HOST: ${REDIS_HOST}
+  #       REDIS_PORT: ${REDIS_PORT}
+  #       PORT: 4000
+  #     depends_on:
+  #       - mongodb
+  #       - redis
+  #     ports:
+  #       - 4000:4000
+  #     restart: unless-stopped
+  #     volumes:
+  #       - .:/usr/src/app
+  #       - /usr/src/app/node_modules
+
+  #     # networks:
+  #     #   - node-network
+    
+  # mongodb:
+  #     image: mongo:6-jammy
+  #     container_name: mongodb
+  #     ports:
+  #       - '27017:27017'
+  #     volumes:
+  #       - dbdata:/data/db
+  #     # networks:
+  #     #   - node-network
+  #     environment:
+  #       MONGODB_URL: ${MONGO_URL}
+   
+  redis:
+      image: redis:alpine
+      container_name: redis
+      hostname: redis
+
+      ports:
+        - '6380:${REDIS_PORT}'
+      environment:
+        REDIS_HOST: ${REDIS_HOST}
+   
+        REDIS_PORT: ${REDIS_PORT}
+     
+      # volumes:
+      #   - redis:/data
+      # networks:
+      #   - node-network
+
+# volumes:
+    # dbdata:  
+    # redis:
+
+# networks:
+#     node-network:
+#       driver: bridge 

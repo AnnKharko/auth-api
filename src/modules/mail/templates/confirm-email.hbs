@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<head>
+  <style>
+    body {
+        width: 100%;
+    }
+    .container {
+        display: grid;
+        margin: 0 auto;
+        max-width: 580px;
+        padding: 10px;
+        width: 343px;
+        text-align: center;
+    }
+    .logo {
+      display: grid;
+      justify-content: center;
+      color: #4494f2;
+      text-align: center;
+      width: 95px
+    }
+    .logo img {
+      width: 95px;
+      margin: 30px auto;
+    }
+    .text {
+      display: grid;
+      justify-content: center;
+      {{!-- text-align: center; --}}
+    }
+    p{
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 150%;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    span{
+      font-weight: 700;
+    }
+</style>
+</head>
+<body>
+<section>
+    <class class="container">
+      <div class="logo" style="margin: 0 auto;">
+        <img src="cid:logo" alt='logo'/>
+      </div>
+        <div class=content>
+            <div class="text">
+                <p>Hi, {{name}},<br>
+                   Welcome on board!</p>
+                   To continue the registration in Test-Auth API enter this code.</p>
+
+                <p>Verification code: <span>{{code}}</span></p>
+                <p>The verification code will be valid for 30 minutes. Please
+                    do not share this code with anyone.<br>
+                   </p>
+                <p> Thanks,
+                    <br>
+                     Test-Auth API Team</p>
+
+            </div>
+        </div>
+    </class>
+</section>
+
+</body>
+</html>

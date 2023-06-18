@@ -1,0 +1,78 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserDto {
+  age: Float
+  email: String!
+  name: String!
+  password: String!
+  phone: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  confirmEmail(code: String!, userId: String!): SendDto!
+  confirmRestorePassword(newPassword: String!, restoreKey: String!): SendDto!
+  createUser(createUserDto: CreateUserDto!): User!
+  deleteUser: SendDto!
+  forgotPassword(email: String!): SendDto!
+  login(email: String!, password: String!): TokensWithRandomRecordsDto!
+  logout: SendDto!
+  refreshTokens: TokenDto!
+  register(registerUserDto: CreateUserDto!): RegisteredUserDto!
+  updatePassword(currentPassword: String!, newPassword: String!): SendDto!
+}
+
+type PostObjectDto {
+  body: String!
+  title: String!
+  userId: Float!
+}
+
+type Query {
+  getUsers: [User!]!
+}
+
+type RegisteredUserDto {
+  tokens: TokenDto!
+  user: User!
+}
+
+type SendDto {
+  message: String!
+  status: Float!
+}
+
+type TokenDto {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type TokensWithRandomRecordsDto {
+  randomRecords: [PostObjectDto!]!
+  tokens: TokenDto!
+}
+
+type User {
+  _id: ID
+  age: Float
+  confirmEmailCode: String
+  confirmedEmail: Boolean!
+  createdAt: DateTime!
+  email: String!
+  name: String!
+  phone: String
+  restoreKey: String
+  role: UserRole!
+  updatedAt: DateTime!
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
